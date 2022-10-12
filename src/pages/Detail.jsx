@@ -120,13 +120,16 @@ const Detail = () => {
                   <HeroIcons.ChevronLeftIcon className="w-8 h-8 font-extrabold text-black"  />
                 </Link>
                 { isEditTitle ?
-                  <input 
-                    name="title"
-                    onBlur={handleUpdateTitle}
-                    className="bg-transparent text-3xl border-b border-black font-bold"
-                    value={title} 
-                    onChange={event => setTitle(event.target?.value)}
-                  />
+                  <form onSubmit={handleUpdateTitle}>
+                    <input 
+                      autoFocus={true}
+                      name="title"
+                      onBlur={handleUpdateTitle}
+                      className="bg-transparent text-3xl border-b border-black font-bold"
+                      value={title} 
+                      onChange={event => setTitle(event.target?.value)}
+                    />
+                  </form>
                 :
                   <div onClick={handleStartEdit} data-cy="todo-title">
                     <h2 className="text-3xl font-bold">{ activity?.title }</h2>   
@@ -182,7 +185,7 @@ const Detail = () => {
                         <input type="checkbox" checked={to_do?.is_active == 0 ? true : false} onChange={() => handleCheckbox(to_do)} className="border h-[40px] w-[40px] rounded-none" />
                       </div>
                       <div className={`${color} w-[14px] h-[14px] rounded-full`} />
-                      <div data-cy="todo-item-title" onClick={() => handleEdit(to_do)}>
+                      <div data-cy="todo-item-title" onClick={() => handleEdit(to_do)}  >
                         <p className={`text-lg ${to_do?.is_active == 0 ? 'line-through' : ''}`}>{ to_do?.title }</p>
                       </div>
                       <button onClick={() => handleEdit(to_do)}>
