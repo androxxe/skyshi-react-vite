@@ -120,7 +120,7 @@ const Detail = () => {
                   <HeroIcons.ChevronLeftIcon className="w-8 h-8 font-extrabold text-black"  />
                 </Link>
                 { isEditTitle ?
-                  <form onSubmit={handleUpdateTitle}>
+                  // <form onSubmit={handleUpdateTitle}>
                     <input 
                       autoFocus={true}
                       name="title"
@@ -129,7 +129,7 @@ const Detail = () => {
                       value={title} 
                       onChange={event => setTitle(event.target?.value)}
                     />
-                  </form>
+                  // </form>
                 :
                   <div onClick={handleStartEdit} data-cy="todo-title">
                     <h2 className="text-3xl font-bold">{ activity?.title }</h2>   
@@ -181,8 +181,8 @@ const Detail = () => {
                 return (
                   <div data-cy="todo-item" className="bg-white px-6 py-5 mb-5 rounded-lg flex items-center justify-between shadow space-x-4" key={`todo_items_${index}`}>
                     <div className="flex items-center text-left space-x-4">
-                      <div data-cy="todo-item-checkbox">
-                        <input type="checkbox" data-cy="todo-item-checkbox" checked={to_do?.is_active == 0 ? true : false} onChange={() => handleCheckbox(to_do)} onClick={() => handleCheckbox(to_do)}  className="border h-[40px] w-[40px] rounded-none" />
+                      <div data-cy="todo-item-checkbox" onClick={() => handleCheckbox(to_do)}>
+                        <input type="checkbox" checked={to_do?.is_active == 0 ? true : false} onChange={() => handleCheckbox(to_do)} className="border h-8 w-8 rounded-none" />
                       </div>
                       <div className={`${color} w-[14px] h-[14px] rounded-full`} />
                       <div data-cy="todo-item-title" onClick={() => handleEdit(to_do)}  >
