@@ -135,7 +135,9 @@ const Detail = () => {
                 <HeroIcons.PencilIcon onClick={isEditTitle ? handleUpdateTitle : handleStartEdit} className="w-5 h-5 text-gray-400 cursor-pointer" data-cy="todo-title-edit-button" />
               </div>
               <div className="flex justify-end items-end space-x-4">
-                <Sort sort={sort} setSort={setSort} />
+                <div data-cy="todo-sort-button">
+                  <Sort sort={sort} setSort={setSort} />
+                </div>
                 <Button onClick={handleTambah} dataCy="todo-add-button">
                   <HeroIcons.PlusIcon className="w-5 h-5 mr-3" />
                   Tambah
@@ -176,7 +178,7 @@ const Detail = () => {
                 return (
                   <div data-cy="todo-item" className="bg-white px-6 py-5 mb-5 rounded-lg flex items-center justify-between shadow space-x-4" key={`todo_items_${index}`}>
                     <div className="flex items-center text-left space-x-4">
-                      <input type="checkbox" checked={to_do?.is_active == 0 ? true : false} onChange={() => handleCheckbox(to_do)} className="border h-[40px] w-[40px] rounded-none" />
+                      <input data-cy="todo-item-checkbox" type="checkbox" checked={to_do?.is_active == 0 ? true : false} onChange={() => handleCheckbox(to_do)} className="border h-[40px] w-[40px] rounded-none" />
                       <div className={`${color} w-[14px] h-[14px] rounded-full`} />
                       <p className={`text-lg ${to_do?.is_active == 0 ? 'line-through' : ''}`} data-cy="todo-item-title">{ to_do?.title }</p>
                       <button onClick={() => handleEdit(to_do)}>

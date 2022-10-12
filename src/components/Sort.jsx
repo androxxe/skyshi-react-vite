@@ -28,6 +28,7 @@ const Sort = ({ setSort, sort }) => {
             <Menu.Item>
               {({ active }) => (
                 <button
+                  data-cy="sort-selection"
                   onClick={() => handleSort('terbaru')}
                   className={`${
                     active ? 'bg-gray-200' : ''
@@ -44,6 +45,7 @@ const Sort = ({ setSort, sort }) => {
             <Menu.Item>
               {({ active }) => (
                 <button
+                  data-cy="sort-selection"
                   onClick={() => handleSort('terlama')}
                   className={`${
                     active ? 'bg-gray-200' : ''
@@ -60,6 +62,7 @@ const Sort = ({ setSort, sort }) => {
             <Menu.Item>
               {({ active }) => (
                 <button
+                  data-cy="sort-selection"
                   onClick={() => handleSort('az')}
                   className={`${
                     active ? 'bg-gray-200' : ''
@@ -76,6 +79,7 @@ const Sort = ({ setSort, sort }) => {
             <Menu.Item>
               {({ active }) => (
                 <button
+                  data-cy="sort-selection"
                   onClick={() => handleSort('za')}
                   className={`${
                     active ? 'bg-gray-200' : ''
@@ -92,6 +96,7 @@ const Sort = ({ setSort, sort }) => {
             <Menu.Item>
               {({ active }) => (
                 <button
+                  data-cy="sort-selection"
                   onClick={() => handleSort('belum_selesai')}
                   className={`${
                     active ? 'bg-gray-200' : ''
