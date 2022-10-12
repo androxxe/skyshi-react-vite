@@ -37,7 +37,7 @@ const ActivityModalDelete = () => {
 
   return (
     <>
-      <div>
+      <div data-cy="modal-information">
         <Transition appear show={isOpenSuccessModal} as={Fragment}>
           <Dialog as="div" open={isOpenSuccessModal} className="relative z-20" onClose={handleCloseSuccessModal}>
             <Transition.Child
