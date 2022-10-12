@@ -178,9 +178,13 @@ const Detail = () => {
                 return (
                   <div data-cy="todo-item" className="bg-white px-6 py-5 mb-5 rounded-lg flex items-center justify-between shadow space-x-4" key={`todo_items_${index}`}>
                     <div className="flex items-center text-left space-x-4">
-                      <input data-cy="todo-item-checkbox" type="checkbox" checked={to_do?.is_active == 0 ? true : false} onChange={() => handleCheckbox(to_do)} className="border h-[40px] w-[40px] rounded-none" />
+                      <div data-cy="todo-item-checkbox">
+                        <input type="checkbox" checked={to_do?.is_active == 0 ? true : false} onChange={() => handleCheckbox(to_do)} className="border h-[40px] w-[40px] rounded-none" />
+                      </div>
                       <div className={`${color} w-[14px] h-[14px] rounded-full`} />
-                      <p className={`text-lg ${to_do?.is_active == 0 ? 'line-through' : ''}`} data-cy="todo-item-title">{ to_do?.title }</p>
+                      <div data-cy="todo-item-title" onClick={() => handleEdit(to_do)}>
+                        <p className={`text-lg ${to_do?.is_active == 0 ? 'line-through' : ''}`}>{ to_do?.title }</p>
+                      </div>
                       <button onClick={() => handleEdit(to_do)}>
                         <HeroIcons.PencilIcon className="text-gray-300 w-5 h-5" />
                       </button>
