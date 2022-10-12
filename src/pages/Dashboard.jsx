@@ -27,7 +27,9 @@ const Dashboard = () => {
       email: staticVariable.EMAIL_USER,
       title: 'New Activity'
     }})
-    await fetchActivity()
+    if(response.status == 201){
+      await fetchActivity()
+    }
     setIsLoadingTambah(false)
   }
 
@@ -35,11 +37,13 @@ const Dashboard = () => {
     setIsLoading(true)
     const response = await fetchActivities()
     setIsLoading(false)
-    dispatch(setActivities(response.data?.data))
+    if(response.status == 200){
+      dispatch(setActivities(response.data?.data))
+    }
   }
   
   return (
-    <Layout>
+    <Layout title="Dashboard">
       <div className="flex items-center justify-between">
         <h2 className="text-3xl font-bold flex-1">Activity</h2>   
         <div className="flex justify-end">
