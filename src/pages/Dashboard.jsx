@@ -67,7 +67,9 @@ const Dashboard = () => {
         activities.length > 0 ? 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6 my-8">
             { activities.map((activity, index) => 
-              <ActivityCard key={`activity_${index}`} activity={activity} />
+              <div data-cy='activity-item'>
+                <ActivityCard key={`activity_${index}`} activity={activity} />
+              </div>
             )}
           </div>
         :
