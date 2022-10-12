@@ -37,7 +37,7 @@ const ActivityModalDelete = () => {
 
   return (
     <>
-      <div data-cy="modal-information">
+      <div>
         <Transition appear show={isOpenSuccessModal} as={Fragment}>
           <Dialog as="div" open={isOpenSuccessModal} className="relative z-20" onClose={handleCloseSuccessModal}>
             <Transition.Child
@@ -51,7 +51,7 @@ const ActivityModalDelete = () => {
             >
               <div className="fixed inset-0 bg-black bg-opacity-25" />
             </Transition.Child>
-            <div className="fixed inset-0 overflow-y-auto">
+            <div data-cy="modal-information" className="fixed inset-0 overflow-y-auto">
               <div className="flex min-h-full items-center justify-center p-4 text-center">
                 <Transition.Child
                   as={Fragment}
