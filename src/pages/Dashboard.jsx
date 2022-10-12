@@ -45,7 +45,7 @@ const Dashboard = () => {
   return (
     <Layout title="Dashboard">
       <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-bold flex-1">Activity</h2>   
+        <h2 className="text-3xl font-bold flex-1" data-cy="activity-title">Activity</h2>   
         <div className="flex justify-end">
           <Button onClick={handleTambah} width dataCy="activity-add-button" className="w-[170px]">
             { isLoadingTambah ?

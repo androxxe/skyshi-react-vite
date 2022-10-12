@@ -15,7 +15,7 @@ const ActivityCard = ({ activity }) => {
   }
 
   return <>
-    <div data-cy={`activity-item-${activity?.id}`} className="shadow bg-white rounded-xl px-6 py-4">
+    <div data-cy={`activity-item`} className="shadow bg-white rounded-xl px-6 py-4">
       <Link to={`detail/${activity?.id}`}>
         <div className="h-[170px]">
           <h4 className="text-lg font-bold" data-cy="activity-item-title">{ activity.title }</h4>

@@ -128,7 +128,9 @@ const Detail = () => {
                     onChange={event => setTitle(event.target?.value)}
                   />
                 :
-                  <h2 className="text-3xl font-bold" data-cy="todo-title">{ activity?.title }</h2>   
+                  <div onClick={handleStartEdit} data-cy="todo-title">
+                    <h2 className="text-3xl font-bold">{ activity?.title }</h2>   
+                  </div>
                 }
                 <HeroIcons.PencilIcon onClick={isEditTitle ? handleUpdateTitle : handleStartEdit} className="w-5 h-5 text-gray-400 cursor-pointer" data-cy="todo-title-edit-button" />
               </div>
