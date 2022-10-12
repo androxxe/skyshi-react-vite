@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import ReactSelect from 'react-select'
+import ReactSelect, { components } from 'react-select'
 import { classNames } from '../functions'
-import { useDispatch } from 'react-redux'
 import { useFormContext } from 'react-hook-form';
 
 const SelectInput = ({ 
@@ -24,6 +23,30 @@ const SelectInput = ({
     setSelectValue(selectValue)
   }, [data, value])
 
+  const TextOption = props => (
+    components.Option && (
+      <components.Option { ...props }>
+        <div data-cy={`modal-add-priority-item`}>
+          { props.label }
+        </div>
+      </components.Option>
+    )
+  );
+  
+  const addDataAcceptance = ( Component, dataAcceptance ) => (
+    props => (
+      <Component
+        { ...props }
+        innerProps={ Object.assign({}, props.innerProps, { 'data-acceptance': dataAcceptance }) }
+      />
+    )
+  );
+  
+  const CUSTOM_COMPONENTS = {
+    Option: addDataAcceptance( TextOption, 'TextOption' ),
+    Menu: addDataAcceptance( components.Menu, 'Menu' ),
+  };
+
   return (
     <div className={className}>
       <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
@@ -38,8 +61,11 @@ const SelectInput = ({
             return {
               value: item.value,
               label: item.label,
+              dataCy: item.dataCy
             }
-          })} 
+          })}
+          // components={DropdownIndicator}
+          components={ CUSTOM_COMPONENTS } 
           onChange={item => {
             onChange()
             setSelectValue(item)

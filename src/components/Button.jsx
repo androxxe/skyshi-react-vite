@@ -14,8 +14,7 @@ const Button = ({ type = 'button', children, onClick, color = 'sky', dataCy, dis
     <button 
       type={type}
       data-cy={dataCy}
-      onClick={onClick}
-      disabled={disabled} 
+      onClick={disabled ? () => {} : onClick}
       className={`${classNameColor} disabled text-center rounded-full text-xl py-3 px-8 font-normal flex items-center justify-center ${className}`}
     >
       { children }

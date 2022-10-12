@@ -123,35 +123,40 @@ const ListItemModalEdit = () => {
                               <div className="w-[12px] h-[12px] rounded-full bg-red-500 mr-2" />
                               Very High
                             </div>,
-                            value: 'very-high'
+                            value: 'very-high',
+                            dataCy: 'modal-add-priority-item'
                           },
                           {
                             label: <div className="flex items-center space-x-4">
                               <div className="w-[12px] h-[12px] rounded-full bg-yellow-500 mr-2" />
                               High
                             </div>,
-                            value: 'high'
+                            value: 'high',
+                            dataCy: 'modal-add-priority-item'
                           },
                           {
                             label: <div className="flex items-center space-x-4">
                               <div className="w-[12px] h-[12px] rounded-full bg-emerald-500 mr-2" />
                               Medium
                             </div>,
-                            value: 'normal'
+                            value: 'normal',
+                            dataCy: 'modal-add-priority-item'
                           },
                           {
                             label: <div className="flex items-center space-x-4">
                               <div className="w-[12px] h-[12px] rounded-full bg-blue-600 mr-2" />
                               Low
                             </div>,
-                            value: 'low'
+                            value: 'low',
+                            dataCy: 'modal-add-priority-item'
                           },
                           {
                             label: <div className="flex items-center space-x-4">
                               <div className="w-[12px] h-[12px] rounded-full bg-purple-500 mr-2" />
                               Very Low
                             </div>,
-                            value: 'very-low'
+                            value: 'very-low',
+                            dataCy: 'modal-add-priority-item'
                           },
                         ]}
                         errors={form.formState?.errors?.priority}
